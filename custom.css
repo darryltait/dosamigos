@@ -1,2 +1,84 @@
 /*=Custom
 -----------------------------------------------------------*/
+html {
+	height: 100% !important;
+}
+body {
+    height: 100% !important;
+    margin: 0;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+.header-logo {
+	height: 150px !important; 
+	/* display: block; */
+	/* margin: 0 auto; */
+	/* margin-left: 100px; */
+	/* width: auto; */
+}
+
+.da-full-bkg {
+	/* background-color: tan !important; */
+	background: rgb(163,118,70);
+background: linear-gradient(0deg, rgba(163,118,70,1) 0%, rgba(244,239,234,1) 100%);
+min-height: 100%;
+}
+
+.hero-title {
+	font-weight: 800;
+}
+
+.content-box {
+	border: 10px solid black;
+	background: white;
+	padding: 16px;
+}
+
+.art-box {
+
+}
+.art-box img {
+	object-fit: cover;
+	max-width: 100%;
+	padding: 16px;
+	max-height: 600px;
+	transition: transform .4s;
+
+}
+/* .art-box img:hover {
+	transform: scale(1.1);
+	overflow: hidden;
+	transform-origin: 50% 50%;
+
+} */
+
+img.rose {
+	/* left: 50px; */
+}
+
+.navbar-toggler:hover {
+	background-color: white;
+	border: .5px solid black !important;
+}
+
+@media (max-width: 1200px) {
+	img.mug {
+		width: 220px;
+	}
+}
+img.mug {
+	/* object-fit: cover; */
+	/* width: 100%; */
+	padding: 16px;
+}
+/* img.top-row {
+	height: 100px !important;
+} */
+
+.vert-2up img{
+	height: 600px;
+	background-image: url('http://localhost:8888/dosamigos/wp-content/uploads/2023/04/RevealTheStarSculpt.jpg');
+	width: auto;
+	object-fit: cover;
+}

@@ -20,12 +20,23 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('d-flex flex-column h-100'); ?>>
+<body <?php body_class('d-flex flex-column da-full-bkg'); ?>>
+<!-- <body <?php body_class('d-flex flex-column h-100 da-full-bkg'); ?>> -->
 
 <header class="site-header" role="banner">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light" > -->
+  <nav class="navbar navbar-light" >
     <div class="container-fluid">
-      <a class="navbar-brand" href="<?= home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a>
+      <!-- <a class="navbar-brand" href="<?= home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a> -->
+      <?php
+  $custom_logo_id = get_theme_mod( 'custom_logo' );
+$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+if ( has_custom_logo() ) {
+	echo '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '" class="header-logo">';
+} else {
+	echo '<h1>' . get_bloginfo('name') . '</h1>';
+}
+?>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,4 +45,5 @@
       </div>
     </div>
   </nav>
+
 </header>

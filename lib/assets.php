@@ -12,6 +12,9 @@ add_action('wp_enqueue_scripts', 'h5bs_enqueue_styles');
 function h5bs_enqueue_scripts()
 {
   // wp_enqueue_script('example', get_template_directory_uri().'/assets/js/example.js', [], '1.0.0', true);
+  wp_enqueue_script('bootmodal', "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js", [], '5.2.3', true);
+  wp_enqueue_script('dosamigos', get_template_directory_uri().'/src/js/dosamigos.js', ['jquery'], '5.2.3', true);
+  
 }
 
 add_action('wp_enqueue_scripts', 'h5bs_enqueue_scripts');

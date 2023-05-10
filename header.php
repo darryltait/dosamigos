@@ -24,15 +24,20 @@
 <!-- <body <?php body_class('d-flex flex-column h-100 da-full-bkg'); ?>> -->
 
 <header class="site-header" role="banner">
-  <!-- <nav class="navbar navbar-expand-lg navbar-light" > -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" > -->
   <nav class="navbar navbar-light" >
     <div class="container-fluid">
       <!-- <a class="navbar-brand" href="<?= home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a> -->
       <?php
   $custom_logo_id = get_theme_mod( 'custom_logo' );
 $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-if ( has_custom_logo() ) {
+if (  has_custom_logo() ) { ?>
+<a href="<?= home_url( '/' ); ?>">
+<?php
 	echo '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '" class="header-logo">';
+  ?>
+</a>
+<?php
 } else {
 	echo '<h1>' . get_bloginfo('name') . '</h1>';
 }

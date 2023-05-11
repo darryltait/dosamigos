@@ -26,7 +26,7 @@
 <header class="site-header" role="banner">
   <!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" > -->
   <nav class="navbar navbar-light" >
-    <div class="container-fluid">
+    <div class="container-fluid px-8">
       <!-- <a class="navbar-brand" href="<?= home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a> -->
       <?php
   $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -42,8 +42,11 @@ if (  has_custom_logo() ) { ?>
 	echo '<h1>' . get_bloginfo('name') . '</h1>';
 }
 ?>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler collapsed d-flex flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <span class="toggler-icon top-bar"></span>
+        <span class="toggler-icon middle-bar"></span>
+        <span class="toggler-icon bottom-bar"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarMain">
         <?php h5bs_primary_nav(); ?>

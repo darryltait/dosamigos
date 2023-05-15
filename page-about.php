@@ -26,7 +26,7 @@ get_header(); ?>
 
                 
                     
-                    <p class="col-lg-9 ps-8 d-flex flex-column justify-content-center"><strong>“I love what I do!”</strong> The feelings portrayed of
+                    <p class="col-lg-9 ps-8 d-flex flex-column justify-content-center"><span class="h3 text-center pb-4">“I love what I do!”</span> The feelings portrayed of
 the Southwest is an interest I've had my
 whole life. I grew up on the east coast
 spending my youth reading, drawing and

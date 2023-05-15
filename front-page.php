@@ -15,20 +15,8 @@ if ( has_custom_logo() ) {
 <div class="container-fluid hero-bkg">
      <h1 class="text-center hero-title pb-16 pt-12">Dale Friends - Sculpture & Fine Art</h1>
      <div class="container">
-        <!-- <div class="d-block d-md-none pt-12 pb-16">
-            <div class="col-12 col-md-4 d-flex flex-column flex-md-row">
-                <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/dale-mug.jpg" alt="" class="w-50">
-
-            </div>
-            <div class="col-12 col-md-4 pt-8">
-
-                <p><strong>“I love what I do!”</strong> The feelings portrayed of
-        the Southwest is an interest I’ve had my
-        whole life.</p>
-            </div>
-        </div> -->
-        
-        <div class="content-box">
+      
+        <!-- <div class="content-box"> -->
             <!-- <div class="row">
 
                 <div class="col-12 col-md-4 art-box ">
@@ -44,7 +32,11 @@ if ( has_custom_logo() ) {
             </div> -->
 
 
-            <div class="row">
+            <!-- Sculptures -->
+
+            <!-- static sculptures -->
+            
+            <!-- <div class="row">
 
               <div class="col-12 col-md-6 art-box d-flex justify-content-center">
                   
@@ -76,15 +68,9 @@ if ( has_custom_logo() ) {
           </p>
                     <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/RevealTheStarSculpt.jpg" alt="" id="the-modal" style="" class="modal-fade">
                   </a>
-                </div>
-
-
-                <!-- <div class="col-12 col-md-6 art-box d-flex justify-content-center">
-                <a href="http://localhost:8888/dosamigos/wp-content/uploads/2023/05/RevealTheStar-closeup.jpg" id="pop" data-bs-toggle="modal" data-bs-target="#exampleModal" data-image="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/DesertRoseFaceClose.jpg" 
-                data-title="First Light" type="button">
-                    <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/FirstLightSculpt.jpg" alt="" id="the-modal" style="" class="modal-fade">
-                  </a>
                 </div> -->
+
+
                 
                 <!-- <div class="col-12 col-md-6 art-box d-flex justify-content-center">
                 <a href="http://localhost:8888/dosamigos/wp-content/uploads/2023/05/RevealTheStar-closeup.jpg" id="pop" data-bs-toggle="modal" data-bs-target="#exampleModal" data-image="http://localhost:8888/dosamigos/wp-content/uploads/2023/05/RevealTheStar-closeup.jpg" 
@@ -104,7 +90,7 @@ if ( has_custom_logo() ) {
                 <!-- <div class="col-12 col-md-4 ms-auto pe-20 art-box">
                     <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/DesertRoseFaceClose.jpg" alt="" class="rose">
                 </div> -->
-            </div>
+            <!-- </div>
                 
             <div class="row">
             <div class="col-12 col-md-6 ms-auto art-box d-flex justify-content-center">
@@ -134,7 +120,71 @@ if ( has_custom_logo() ) {
 </a>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+
+
+        <!-- DYNAMIC SCULPTURES -->
+
+
+        <?php
+        $args = array(
+          'post_type' => 'sculpture',
+          'order' => 'ASC',
+          'posts_per_page' => -1,
+        );
+        $the_query = new WP_Query($args);
+
+        // $dimensions = get_field('dimensions');
+        // $price = get_field('price');
+        ?>
+
+        <div class="content-box d-flex flex-row flex-wrap py-8 px-8">
+        <?php if($the_query->have_posts()); ?>
+          <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
+          <div class="col-12 col-md-6 ms-auto art-box d-flex justify-content-center">
+          <a id="pop" class="site" 
+          data-bs-toggle="modal" 
+          data-bs-target="#exampleModal" 
+          data-image="<?php the_field('close_up_image'); ?>" 
+          data-title="<?php the_title(); ?>" type="button">
+                
+                
+          <p><span class="h2 text-center"><em><?php the_title(); ?></em></span>
+        <br>
+            
+           <span class="text-center"><?php the_field('dimensions'); ?></span>
+            <br>
+            <span class="text-center pb-12"><?php the_field('price'); ?> </span>
+            <!-- <?php the_field('dimensions'); ?> -->
+            <span class="small pt-4"><em>Click for close up view.</em></span>
+              
+          </p>
+            <?php if(the_post_thumbnail()) : ?>
+              <?php the_post_thumbnail('thumbnail'); ?>
+              <?php endif; ?>
+              <!-- <h2><?php the_title(); ?></h2> -->
+              
+
+              <!-- <?php if(the_field('price')) : ?>
+                <p class=""><?php the_field('price'); ?></p>
+              <?php endif ?>
+              <?php if(the_field('dimensions')) : ?>
+                <p><?php the_field('dimensions'); ?></p>
+              <?php endif ?> -->
+              <!-- <?php the_field('price'); ?> -->
+              <!-- <?php the_field('dimensions'); ?> -->
+            
+              
+              
+              
+            </div>
+          </a>
+            <?php endwhile; ?>
+          </div>
+            <?php wp_reset_postdata(); ?>
+
+        <!-- Illustrations -->
         <div class="content-box mt-24">
             <div class="row">
 
@@ -152,18 +202,9 @@ if ( has_custom_logo() ) {
                 </div>
             </div>
         </div>
-        <!-- test short bio section -->
-        <!-- <div class="info pt-20">
-        <h2>Dale Friends</h2>
-        <p>“I love what I do!” The feelings portrayed of
-the Southwest is an interest I’ve had my
-whole life. I grew up on the east coast
-spending my youth reading, drawing and
-painting unique characters from literature
-and movies.</p>
-</div> -->
+       
 
-<div class=" d-lg-flex flex-row pt-8 pb-8 px-8 content-box mt-24">
+<!-- <div class=" d-lg-flex flex-row pt-8 pb-8 px-8 content-box mt-24">
             <div class="col-lg-3">
 
                 <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/dale-mug.jpg" alt="" class="mug">
@@ -171,7 +212,8 @@ and movies.</p>
 
                 
                     
-                    <p class="col-lg-9 ps-8 d-flex flex-column justify-content-center"><strong>“I love what I do!”</strong> The feelings portrayed of
+            <div class="col-lg-9 ps-8 d-flex flex-column justify-content-center">
+                <p><strong>“I love what I do!”</strong> The feelings portrayed of
 the Southwest is an interest I've had my
 whole life. I grew up on the east coast
 spending my youth reading, drawing and
@@ -205,9 +247,8 @@ to produce, and each one is a learning
 experience. As an artist I don't ever want to
 stop learning!</p>
         </div>
-     </div>
 
-</div>
+</div> -->
 
 <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -241,7 +282,8 @@ stop learning!</p>
       </div> -->
     </div>
   </div>
-</div>
 
+              </div>
+              </div>
 <?php 
     get_footer(); ?>

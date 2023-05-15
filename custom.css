@@ -42,6 +42,7 @@ min-height: 100%;
 	object-fit: cover;
 	max-width: 100%;
 	padding: 16px;
+	height: auto;
 	max-height: 600px;
 	transition: transform .4s;
 
@@ -135,8 +136,10 @@ img.mug {
 }
 
 .modal-body img {
-	height: 80vh;
+	/* height: 80vh; */
+	max-height: 80vh;
 	width: auto !important;
+	max-width: 80vw;
 }
 
 .modal.fade .modal-dialog {

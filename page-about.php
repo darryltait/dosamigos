@@ -18,15 +18,15 @@ get_header(); ?>
   <?php endwhile; endif; ?>
 
 
-  <div class=" d-lg-flex flex-row pt-8 pb-8 px-8 content-box mt-24">
-            <div class="col-lg-3">
+  <div class="d-flex flex-column d-lg-flex flex-lg-row pt-8 pb-8 px-8 content-box mt-24">
+            <div class="d-flex flex-column align-items-center col-lg-3">
 
             <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/05/Dale-Janice-scaled.jpeg" alt="" class="mug">
             </div>
 
                 
                     
-                    <p class="col-lg-9 ps-8 d-flex flex-column justify-content-center"><span class="h3 text-center pb-4">“I love what I do!”</span> The feelings portrayed of
+                    <p class="col-lg-9 ps-lg-8 d-flex flex-column justify-content-center"><span class="h3 text-center pb-4">“I love what I do!”</span> The feelings portrayed of
 the Southwest is an interest I've had my
 whole life. I grew up on the east coast
 spending my youth reading, drawing and
@@ -66,3 +66,4 @@ stop learning!</p>
 <?php // get_sidebar(); ?>
 
 <?php get_footer(); ?>
+

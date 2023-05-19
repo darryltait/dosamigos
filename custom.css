@@ -39,7 +39,7 @@ min-height: 100%;
 
 }
 .art-box img {
-	object-fit: cover;
+	object-fit: contain;
 	max-width: 100%;
 	padding: 16px;
 	height: auto;
@@ -69,10 +69,12 @@ img.rose {
 	}
 } */
 img.mug {
-	/* object-fit: cover; */
+	object-fit: cover;
+	/* object-position: top; */
 	width: 100%;
 	padding: 16px;
-	max-width: 220px;
+	/* max-width: 220px; */
+	/* max-height: 400px; */
 	
 }
 /* img.top-row {
@@ -133,6 +135,10 @@ img.mug {
 
 .site p:hover {
 	opacity: 1;
+}
+
+a#pop:hover {
+	cursor: pointer;
 }
 
 .modal-body img {

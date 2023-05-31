@@ -142,7 +142,49 @@ if ( has_custom_logo() ) {
         <div class="content-box d-flex flex-row flex-wrap py-8 px-8">
         <?php if($the_query->have_posts()); ?>
           <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
-          <div class="col-12 col-md-6 ms-auto art-box d-flex justify-content-center">
+          <div class="col-12 col-md-6 ms-auto art-box d-flex flex-column justify-content-center align-items-center pb-8">
+          <a id="pop" class="site" 
+          data-bs-toggle="modal" 
+          data-bs-target="#exampleModal" 
+          data-image="<?php the_field('close_up_image'); ?>" 
+          data-title="<?php the_title(); ?>" type="button">
+                
+           <div class="d-flex flex-column justify-content-center align-items-center">     
+          <p style="background-image: url('<?php the_field("close_up_image"); ?>');  ; background-repeat: no-repeat; background-size: auto 100%; background-position: center;" class="hover-image">
+              
+          </p>
+      </div>
+            <?php if(the_post_thumbnail()) : ?>
+              <?php the_post_thumbnail(); ?>
+              <?php endif; ?>
+           
+            </a>
+            <h2 class="pt-6 pb-2"><?php the_title(); ?></h2>
+            <p class="px-md-2 px-lg-8"><?php the_field('dimensions'); ?></p> 
+          </div>
+
+            <?php endwhile; ?>
+          </div>
+        <?php wp_reset_postdata(); ?>
+
+
+        <!-- Illustrations -->
+        <?php
+        $args = array(
+          'post_type' => 'illustration',
+          'order' => 'ASC',
+          'posts_per_page' => -1,
+        );
+        $the_query = new WP_Query($args);
+
+        // $dimensions = get_field('dimensions');
+        // $price = get_field('price');
+        ?>
+
+        <div class="mt-20 content-box d-flex flex-row flex-wrap py-8 px-8">
+        <?php if($the_query->have_posts()); ?>
+          <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
+          <div class="col-12 col-md-6 ms-auto art-box d-flex flex-column justify-content-center align-items-center pb-8">
           <a id="pop" class="site" 
           data-bs-toggle="modal" 
           data-bs-target="#exampleModal" 
@@ -150,105 +192,30 @@ if ( has_custom_logo() ) {
           data-title="<?php the_title(); ?>" type="button">
                 
                 
-          <p><span class="h2 text-center"><em><?php the_title(); ?></em></span>
-        <br>
+          <p style="background-image: url('<?php the_field("close_up_image"); ?>'); background-size: auto 100%;">
             
-           <span class="text-center"><?php the_field('dimensions'); ?></span>
+           <!-- <span class="text-center"><?php the_field('dimensions'); ?></span> -->
             <br>
-            <span class="text-center pb-12"><?php the_field('price'); ?> </span>
+            <!-- <span class="text-center pb-12"><?php the_field('price'); ?> </span> -->
             <!-- <?php the_field('dimensions'); ?> -->
-            <span class="small pt-4"><em>Click for close up view.</em></span>
+            <!-- <span class="small pt-4"><em>Click for close up view.</em></span> -->
+            <!-- <img src="<?php the_field('close_up_image'); ?>" alt="" class="hover-image"> -->
               
-          </p>
+      </p>
             <?php if(the_post_thumbnail()) : ?>
-              <?php the_post_thumbnail('thumbnail'); ?>
+              <?php the_post_thumbnail('medium'); ?>
               <?php endif; ?>
-              <!-- <h2><?php the_title(); ?></h2> -->
-              
+           
+            </a>
+            <h2 class="pt-6 pb-2"><?php the_title(); ?></h2>
+            <p class="px-md-2 px-lg-8"><?php the_field('dimensions'); ?></p> 
+          </div>
 
-              <!-- <?php if(the_field('price')) : ?>
-                <p class=""><?php the_field('price'); ?></p>
-              <?php endif ?>
-              <?php if(the_field('dimensions')) : ?>
-                <p><?php the_field('dimensions'); ?></p>
-              <?php endif ?> -->
-              <!-- <?php the_field('price'); ?> -->
-              <!-- <?php the_field('dimensions'); ?> -->
-            
-              
-              
-              
-            </div>
-          </a>
             <?php endwhile; ?>
           </div>
-            <?php wp_reset_postdata(); ?>
-
-        <!-- Illustrations -->
-        <div class="content-box mt-24">
-            <div class="row">
-
-                <div class="col-12 col-md-6 art-box">
-                    <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/ArabianSketch.jpg" alt="">
-                </div>
-                <div class="col-12 col-md-6 art-box">
-                    <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/EastwoodCaricature.jpg" alt="">
-                </div>
-                <div class="col-12 col-md-6 art-box">
-                    <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/GeishaSketch.jpg" alt="">
-                </div>
-                <div class="col-12 col-md-6 art-box">
-                    <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/KabukiSketch.jpg" alt="">
-                </div>
-            </div>
-        </div>
+        <?php wp_reset_postdata(); ?>
        
 
-<!-- <div class=" d-lg-flex flex-row pt-8 pb-8 px-8 content-box mt-24">
-            <div class="col-lg-3">
-
-                <img src="http://localhost:8888/dosamigos/wp-content/uploads/2023/04/dale-mug.jpg" alt="" class="mug">
-            </div>
-
-                
-                    
-            <div class="col-lg-9 ps-8 d-flex flex-column justify-content-center">
-                <p><strong>“I love what I do!”</strong> The feelings portrayed of
-the Southwest is an interest I've had my
-whole life. I grew up on the east coast
-spending my youth reading, drawing and
-painting unique characters from literature
-and movies.
-Originally I started out as an Architectural
-Draftsman and spent time working with
-consulting engineers in New York. However
-I felt a need to expand my horizons and
-enrolled in the Art Institute of Fort Lauderdale.
-My career spans over 30 years as a
-Graphic Designer in Pennsylvania, New York
-and Florida, with clients as varied as Corning
-Glass Works, IBM, Visit Florida and the Key
-West tourism industry. I have a background
-of illustration, painting, computer design,
-sign design and now I have finally have the
-opportunity to sculpt and find it more
-challenging than anything created previously.
-I've waited a long time to pursue my
-love of the Southwest in this venue.
-In my sculptures I try to capture a moment
-from a film or book and change it around to
-suit an emotion I'm trying to convey. Occasionally
-I use friends faces and put them into
-a scene and once I've even sculpted a self
-portrait as well.
-I enjoy expressing and sharing my work.
-Most sculptures take me 10 months to a year
-to produce, and each one is a learning
-experience. As an artist I don't ever want to
-stop learning!</p>
-        </div>
-
-</div> -->
 
 <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -285,5 +252,40 @@ stop learning!</p>
 
               </div>
               </div>
+
+              <!-- test section with display changing on hover -->
+  <!-- <h2>test</h2>
+  <div class="container">
+  <?php
+        $args = array(
+          'post_type' => 'sculpture',
+          'order' => 'ASC',
+          'posts_per_page' => -1,
+        );
+        $the_query = new WP_Query($args);
+
+       
+        ?>
+
+        <div class="content-box d-flex flex-row flex-wrap py-8 px-8">
+        <?php if($the_query->have_posts()); ?>
+          <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
+          <div class="col-12 col-md-6 ms-auto art-box d-flex flex-column justify-content-center align-items-center pb-8">
+          
+    <div class="image-box">
+            <img src="<?php echo the_post_thumbnail_url(); ?>" alt="">
+            <img src="<?php the_field("close_up_image"); ?>" alt="" class="">
+
+    </div>
+           
+            <h2 class="pt-6 pb-2"><?php the_title(); ?></h2>
+            <p class="px-md-2 px-lg-8"><?php the_field('dimensions'); ?></p> 
+          </div>
+
+            <?php endwhile; ?>
+          </div>
+        <?php wp_reset_postdata(); ?> -->
+
+  </div>
 <?php 
     get_footer(); ?>

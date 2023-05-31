@@ -30,29 +30,30 @@ min-height: 100%;
 }
 
 .content-box {
-	border: 10px solid black;
+	border: 7px solid black;
 	background: white;
 	padding: 16px;
 }
 
 .art-box {
+	padding: 16px;
+	margin-bottom: 16px;
+
 
 }
 .art-box img {
 	object-fit: contain;
 	max-width: 100%;
-	padding: 16px;
+	/* padding: 16px; */
 	height: auto;
 	max-height: 600px;
 	transition: transform .4s;
+	background-color: white;
+
 
 }
-/* .art-box img:hover {
-	transform: scale(1.1);
-	overflow: hidden;
-	transform-origin: 50% 50%;
 
-} */
+
 
 img.rose {
 	/* left: 50px; */
@@ -120,21 +121,43 @@ img.mug {
 	align-items: center;
 	color: black;
 	font-size: 20px;
-	background-color: rgba(255,255,255,0.90);
-	/* background-color: rgba(243,238,231,0.90); */
-	/* background-color: rgba(49, 111, 98,0.85); */
-	/* background-color: rgba(212,193,173,0.95); */
-
+	/* background-color: rgba(255,255,255,0.90); */
+	background-repeat: no-repeat;
 	/* color: white; */
 	/* border: 1px solid #316f62; */
 	top: 0;
 	left: 0;
 	opacity: 0;
-	transition: opacity 250ms ease-in;
+	transition: opacity 500ms ease-in-out;
 }
+
+
+
+
 
 .site p:hover {
 	opacity: 1;
+
+}
+
+
+.image-box img:last-child {
+	display: none;
+	opacity: 0;
+
+}
+.image-box:hover img:last-child {
+	display: block;
+	opacity: 1;
+
+}
+.image-box:hover img:first-child {
+	display: none;
+	opacity: 0;
+}
+.image-box:hover img:first-child {
+	transition: opacity 500ms ease-in-out, display 500ms ease;
+
 }
 
 a#pop:hover {
